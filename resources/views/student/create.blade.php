@@ -6,7 +6,7 @@
             <h2>Add New Student</h2>
         </div>
         <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('student') }}"> Back</a>
+            <a class="btn btn-primary padding-top" href="{{ url('student') }}"> Back</a>
         </div>
     </div>
 

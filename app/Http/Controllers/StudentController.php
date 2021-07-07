@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
-//use GuzzleHttp\Client;
 class StudentController extends Controller {
 	/**
 	 * Display a listing of the resource.
@@ -14,12 +14,22 @@ class StudentController extends Controller {
 	 */
 	public function index() {
 
-		// $client = new Client([
-		// 	'timeout' => 50.0,
-		// ]);
-		// $response = $client->request('GET', 'https://swapi.dev/api/people/');
-		// $json_response = json_decode($response->getBody());
-		// $students = $json_response->results;
+		$client = new Client([
+			'timeout' => 50.0,
+		]);
+		$response = $client->request('GET', 'https://swapi.dev/api/people/');
+		$json_response = json_decode($response->getBody());
+		$api_results = $json_response->results;
+		foreach ($api_results as $key => $api_result) {
+			$student = Student::firstOrNew([
+				'name' => $api_result->name,
+			]);
+			$student->height = $api_result->height;
+			$student->mass = $api_result->mass;
+			$student->hair_color = $api_result->hair_color;
+			$student->skin_color = $api_result->skin_color;
+			$student->save();
+		}
 		$students = Student::all();
 		return view('student.list', compact('students', 'students'));
 	}
@@ -119,6 +129,15 @@ class StudentController extends Controller {
 		//
 		$student->delete();
 		return redirect('/student')->with('success', 'Student deleted successfully');
+	}
+	public function getData(Student $student) {
+		$client = new Client([
+			'timeout' => 50.0,
+		]);
+		$response = $client->request('GET', 'https://swapi.dev/api/people/');
+		$json_response = json_decode($response->getBody());
+		$students = $json_response->results;
+		return view('student.api', compact('students', 'students'));
 	}
 }
 ?>

@@ -8,6 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
+	.padding-top
+	{
+		margin-top: 20px;
+	}
+</style>
 <body>
 <div class="container">
     @yield('content')
