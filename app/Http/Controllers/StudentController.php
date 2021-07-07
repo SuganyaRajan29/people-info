@@ -54,8 +54,10 @@ class StudentController extends Controller {
 		//
 		$request->validate([
 			'name' => 'required',
-			'height' => 'required',
-			'mass' => 'required',
+			'height' => 'required|numeric',
+			'mass' => 'required|numeric',
+			'hair_color' => 'required',
+			'skin_color' => 'required',
 		]);
 		$student = new Student([
 			'name' => $request->name,
