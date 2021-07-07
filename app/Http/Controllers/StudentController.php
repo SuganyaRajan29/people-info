@@ -12,10 +12,7 @@ class StudentController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$client = new Client();
-		$response = $client->get('https://api.envato.com/v1/discovery/search/search/item?site=themeforest.net&category=wordpress&sort_by=relevance&access_token=TOKEN');
-		return $response;
-		return view('products/show', compact('response'));
+
 		//
 		$students = Student::all();
 		return view('student.list', compact('students', 'students'));
@@ -40,18 +37,20 @@ class StudentController extends Controller {
 	public function store(Request $request) {
 		//
 		$request->validate([
-			'txtFirstName' => 'required',
-			'txtLastName' => 'required',
-			'txtAddress' => 'required',
+			'name' => 'required',
+			'height' => 'required',
+			'mass' => 'required',
 		]);
-
 		$student = new Student([
-			'first_name' => $request->get('txtFirstName'),
-			'last_name' => $request->get('txtLastName'),
-			'address' => $request->get('txtAddress'),
+			'name' => $request->name,
+			'height' => $request->height,
+			'mass' => $request->mass,
+			'hair_color' => $request->hair_color,
+			'skin_color' => $request->skin_color,
 		]);
 
 		$student->save();
+
 		return redirect('/student')->with('success', 'Student has been added');
 	}
 
@@ -88,16 +87,17 @@ class StudentController extends Controller {
 		//
 
 		$request->validate([
-			'txtFirstName' => 'required',
-			'txtLastName' => 'required',
-			'txtAddress' => 'required',
+			'name' => 'required',
+			'height' => 'required',
+			'mass' => 'required',
 		]);
 
 		$student = Student::find($id);
-		$student->first_name = $request->get('txtFirstName');
-		$student->last_name = $request->get('txtLastName');
-		$student->address = $request->get('txtAddress');
-
+		$student->name = $request->name;
+		$student->height = $request->height;
+		$student->mass = $request->mass;
+		$student->hair_color = $request->hair_color;
+		$student->skin_color = $request->skin_color;
 		$student->update();
 
 		return redirect('/student')->with('success', 'Student updated successfully');

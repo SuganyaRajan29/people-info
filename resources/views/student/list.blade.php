@@ -19,9 +19,11 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
+            <th>Name</th>
+            <th>Height</th>
+            <th>Mass</th>
+            <th>Hair Color</th>
+            <th>Skin Color</th>
             <th width="280px">Action</th>
         </tr>
         @php
@@ -30,9 +32,11 @@
         @foreach ($students as $student)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $student->first_name }}</td>
-                <td>{{ $student->last_name }}</td>
-                <td>{{ $student->address }}</td>
+                <td>{{ $student->name }}</td>
+                <td>{{ $student->height }}</td>
+                <td>{{ $student->mass }}</td>
+                 <td>{{ $student->hair_color }}</td>
+                  <td>{{ $student->skin_color }}</td>
                 <td>
                     <form action="{{ route('student.destroy',$student->id) }}" method="POST">
                         <a class="btn btn-info" href="{{ route('student.show',$student->id) }}">Show</a>

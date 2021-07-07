@@ -23,17 +23,25 @@
     <form method="post" action="{{ route('student.update',$student->id) }}" >
         @method('PATCH')
         @csrf
-        <div class="form-group">
-            <label for="txtFirstName">First Name:</label>
-            <input type="text" class="form-control" id="txtFirstName" placeholder="Enter First Name" name="txtFirstName" value="{{ $student->first_name }}">
+         <div class="form-group">
+            <label for="txtFirstName">First Name: *</label>
+            <input type="text" class="form-control" id="name" value="{{ $student->name }}" name="name">
         </div>
         <div class="form-group">
-            <label for="txtLastName">Last Name:</label>
-            <input type="text" class="form-control" id="txtLastName" placeholder="Enter Last Name" name="txtLastName" value="{{ $student->last_name }}">
+            <label for="txtLastName">Height: *</label>
+            <input type="text" class="form-control" id="height" value="{{ $student->height }}" name="height">
         </div>
         <div class="form-group">
-            <label for="txtAddress">Address:</label>
-            <textarea class="form-control" id="txtAddress" name="txtAddress" rows="10" placeholder="Enter Address">{{ $student->address }}</textarea>
+            <label for="txtLastName">Mass: *</label>
+            <input type="text" class="form-control" id="mass" value="{{ $student->mass }}" name="mass">
+        </div>
+         <div class="form-group">
+            <label for="txtLastName">Hair Color:</label>
+            <input type="text" class="form-control" id="hair_color" value="{{ $student->hair_color }}" name="hair_color">
+        </div>
+         <div class="form-group">
+            <label for="txtLastName">Skin Color</label>
+            <input type="text" class="form-control" id="skin_color" value="{{ $student->skin_color }}" name="skin_color">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

@@ -11,16 +11,24 @@
     </div>
     <table class="table table-bordered">
         <tr>
-            <th>First Name:</th>
-            <td>{{ $student->first_name }}</td>
+            <th>Name:</th>
+            <td>{{ $student->name }}</td>
         </tr>
         <tr>
-            <th>Last Name:</th>
-            <td>{{ $student->first_name }}</td>
+            <th>Height:</th>
+            <td>{{ $student->height }}</td>
         </tr>
         <tr>
-            <th>Address:</th>
-            <td>{{ $student->address }}</td>
+            <th>Mass:</th>
+            <td>{{ $student->mass }}</td>
+        </tr>
+        <tr>
+            <th>Hair Color:</th>
+            <td>{{ $student->hair_color }}</td>
+        </tr>
+        <tr>
+            <th>Skin Color:</th>
+            <td>{{ $student->skin_color }}</td>
         </tr>
 
     </table>

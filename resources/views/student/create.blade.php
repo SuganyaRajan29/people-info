@@ -23,17 +23,26 @@
     <form action="{{ route('student.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="txtFirstName">First Name:</label>
-            <input type="text" class="form-control" id="txtFirstName" placeholder="Enter First Name" name="txtFirstName">
+            <label for="txtFirstName">First Name: *</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter First Name" name="name">
         </div>
         <div class="form-group">
-            <label for="txtLastName">Last Name:</label>
-            <input type="text" class="form-control" id="txtLastName" placeholder="Enter Last Name" name="txtLastName">
+            <label for="txtLastName">Height: *</label>
+            <input type="text" class="form-control" id="height" placeholder="Enter Height" name="height">
         </div>
         <div class="form-group">
-            <label for="txtAddress">Address:</label>
-            <textarea class="form-control" id="txtAddress" name="txtAddress" rows="10" placeholder="Enter Address"></textarea>
+            <label for="txtLastName">Mass: *</label>
+            <input type="text" class="form-control" id="mass" placeholder="Enter Mass" name="mass">
         </div>
+         <div class="form-group">
+            <label for="txtLastName">Hair Color:</label>
+            <input type="text" class="form-control" id="hair_color" placeholder="Enter Hair Color" name="hair_color">
+        </div>
+         <div class="form-group">
+            <label for="txtLastName">Skin Color</label>
+            <input type="text" class="form-control" id="skin_color" placeholder="Enter Skin Color" name="skin_color">
+        </div>
+
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 @endsection
