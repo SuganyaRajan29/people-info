@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Laravel 6 CRUD Example</h2>
+                <h2>Student Details</h2>
         </div>
         <div class="col-lg-1">
             <a class="btn btn-success" href="{{ route('student.create') }}">Add</a>

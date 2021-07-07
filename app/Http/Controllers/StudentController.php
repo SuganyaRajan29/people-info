@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Student;
 use Illuminate\Http\Request;
 
+//use GuzzleHttp\Client;
 class StudentController extends Controller {
 	/**
 	 * Display a listing of the resource.
@@ -13,7 +14,12 @@ class StudentController extends Controller {
 	 */
 	public function index() {
 
-		//
+		// $client = new Client([
+		// 	'timeout' => 50.0,
+		// ]);
+		// $response = $client->request('GET', 'https://swapi.dev/api/people/');
+		// $json_response = json_decode($response->getBody());
+		// $students = $json_response->results;
 		$students = Student::all();
 		return view('student.list', compact('students', 'students'));
 	}
