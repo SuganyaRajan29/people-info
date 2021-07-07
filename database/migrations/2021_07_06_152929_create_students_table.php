@@ -13,9 +13,11 @@ class CreateStudentsTable extends Migration {
 	public function up() {
 		Schema::create('students', function (Blueprint $table) {
 			$table->bigIncrements('id');
-			$table->string('first_name');
-			$table->string('last_name');
-			$table->text('address');
+			$table->string('name', 191);
+			$table->string('height', 30);
+			$table->string('mass', 30);
+			$table->string('hair_color', 30);
+			$table->string('skin_color', 30);
 			$table->timestamps();
 		});
 	}
